@@ -1,0 +1,29 @@
+default: &default
+  adapter: <%= ENV.fetch('DB_ADAPTER') { 'postgresql' } %>
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#databasepooling
+  pool: 5
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#databasepooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+ 
+development:
+  <<: *default
+  database: gallery_development
+  
+staging:
+  <<: *default
+  database: gallery_development
+
+production:
+  <<: *default
+  # url: <%= ENV['DATABASE_URL'] %>
+  # pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 25 %>
+  database: gallery_development_demo
+

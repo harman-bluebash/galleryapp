@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-light mt-3">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item ">
+        <div class="m-2">
+          <h2>  <b class="text-danger">Lets play</b> </h2>
+        </div>  
+        </li>
+        
+        <li class="nav-item m-2">
+            <% if user_signed_in?%>
+              <%= link_to "New Album" , new_album_path, class: "text-decoration-none btn btn-success text-default" %> 
+            <%end%>
+        </li>
+
+        <li class="nav-item m-2  ">
+          <% if user_signed_in?%>
+            <li class="nav-link text-default" herf="/albums" ><%= link_to "LogOut", destroy_user_session_path, class: "text-decoration-none btn btn-danger text-default", data: {
+                     turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"                                   
+                   }  %></li>
+            <%else%>
+              <%= link_to "login" , new_user_session_path, class: "text-decoration-none btn btn-success text-default" %>
+          <%end%>
+        </li>
+
+        <li class="nav-item m-2">
+          <% if user_signed_in?%>
+            <%= link_to "MY Albums" , albums_path, class: "text-decoration-none btn btn-success text-default" %> 
+          <%end%>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

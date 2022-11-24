@@ -1,0 +1,45 @@
+
+<%= render "nav" %>
+
+<div class="mt-4 text-center "> 
+  <%= search_form_for @q do |f| %>    
+      <%= f.text_field :tags_name_cont, type: "search", class: "w-25" %>
+      <%= f.submit class: "btn btn-primary"  %>    
+  <% end %>
+</div>
+<div class="container mt-5 ">
+  <div class="row">  
+    <% @albums.each do |album| %>    
+      <div class="col-md-4 mt-3 ">
+        <%= link_to album, class: "text-decoration-none" do %>
+          <div class="text-decoration-none">
+            <div class="card text-black " , style="width: 20rem;">
+              <%= image_tag (album.cover_image) if album.cover_image.attached?%>
+              <div class="card-body row">
+              <div class="col">
+                <h5 class="card-title text-decoration-none ">
+                  <h5>Title:</h5>
+                  <%= album.title%>  
+                  <h5>Tags:</h5>
+                  <%= album.tag_list %>
+                </h5>
+              </div>
+              <div class="col">
+              </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= link_to "Destroy", album_path(album.id), data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        }, class: 'btn btn-danger' %>
+        <%=link_to "Edit" , edit_album_path(album), class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "footer" %>
+
+

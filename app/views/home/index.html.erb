@@ -1,0 +1,30 @@
+
+<%= render "albums/nav" %>
+<div class="mt-4 text-center "> 
+  <%= search_form_for @q do |f| %>    
+      <%= f.text_field :tags_name_cont, type: "search", class: "w-25" %>
+      <%= f.submit class: "btn btn-primary"  %>    
+  <% end %>
+</div>
+<div class="container mt-5 ">
+    <div class="row">  
+        <% @albums.each do |album| %>    
+            <div class="col-md-4 mt-3 ">
+                <a href="/albums/<%= album.id %>" class="text-decoration-none text-black" > 
+                    <div class="card " style="width: 20rem;">
+                        <%= image_tag (album.cover_image) if album.cover_image.attached? %>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <h5>title:</h5>
+                                <%= album.title %>  
+                                <h5>Tags:</h5>
+                                <%= album.tag_list %>                      
+                            </h5>            
+                        </div>
+                    </div>
+                </a>
+            </div>   
+        <% end %>
+    </div>
+</div>
+<%= render "albums/footer"%>

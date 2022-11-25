@@ -90,4 +90,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.assets.css_compressor = :yui
+config.assets.js_compressor = :terser 
+config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name => '5fd9db6a2119c4',
+    :password => '0d5fb5ef3aa0be',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
+  }
 end

@@ -212,8 +212,6 @@ GEM
     sqlite3 (1.5.3-x86_64-linux)
     stimulus-rails (1.1.1)
       railties (>= 6.0.0)
-    terser (1.1.12)
-      execjs (>= 0.3.0, < 3)
     thor (1.2.1)
     tilt (2.0.11)
     timeout (0.3.0)
@@ -223,6 +221,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -263,9 +263,9 @@ DEPENDENCIES
   sprockets-rails
   sqlite3
   stimulus-rails
-  terser (~> 1.1, >= 1.1.1)
   turbo-rails
   tzinfo-data
+  uglifier (~> 4.2)
   web-console
   webdrivers
 

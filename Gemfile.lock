@@ -96,7 +96,6 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.11.0)
-    execjs (2.8.1)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -221,8 +220,6 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
-    uglifier (4.2.0)
-      execjs (>= 0.3.0, < 3)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -266,7 +263,6 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
-  uglifier (~> 4.2)
   web-console
   webdrivers
   yui-compressor (~> 0.12.0)

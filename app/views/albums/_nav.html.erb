@@ -19,9 +19,9 @@
 
         <li class="nav-item m-2  ">
           <% if user_signed_in?%>
-            <li class="nav-link text-default" herf="/albums" ><%= link_to "LogOut", destroy_user_session_path, class: "text-decoration-none btn btn-danger text-default", data: {
-                     turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"                                   
+            <li class="nav-link text-default" href="/albums" ><%= link_to "LogOut", destroy_user_session_path, class: "text-decoration-none btn btn-danger text-default", data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"                                   
                    }  %></li>
             <%else%>
               <%= link_to "login" , new_user_session_path, class: "text-decoration-none btn btn-success text-default" %>

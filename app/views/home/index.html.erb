@@ -10,19 +10,21 @@
     <div class="row">  
         <% @albums.each do |album| %>    
             <div class="col-md-4 mt-3 ">
-                <a href="/albums/<%= album.id %>" class="text-decoration-none text-black" > 
-                    <div class="card " style="width: 20rem;">
-                        <%= image_tag (album.cover_image) if album.cover_image.attached? %>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                <h5>title:</h5>
-                                <%= album.title %>  
-                                <h5>Tags:</h5>
-                                <%= album.tag_list %>                      
-                            </h5>            
-                        </div>
-                    </div>
-                </a>
+            <%= link_to album, class: "text-decoration-none" do %>
+                <div class="card card1 text-black ">
+                  <%= image_tag (album.cover_image) if album.cover_image.attached?%>
+                  <div class="card-body row">
+                  <div class="col">
+                    <h5 class="card-title text-decoration-none ">
+                      <h5>Title:</h5>
+                      <%= album.title%>  
+                      <h5>Tags:</h5>
+                      <%= album.tag_list %>
+                    </h5>
+                  </div>
+                  </div>
+                </div>
+            <% end %>
             </div>   
         <% end %>
     </div>

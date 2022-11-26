@@ -8,11 +8,11 @@
   <% end %>
 </div>
 <div class="container mt-5 ">
-  <div class="row">  
+  <div class="row row1">  
     <% @albums.each do |album| %>    
-      <div class="col-md-4 mt-3 ">
+      <div class="col col-md-4 mt-3 ">
         <%= link_to album, class: "text-decoration-none" do %>
-            <div class="card text-black " , style="width: 20rem;">
+            <div class="card card1 text-black ">
               <%= image_tag (album.cover_image) if album.cover_image.attached?%>
               <div class="card-body row">
               <div class="col">
@@ -22,8 +22,6 @@
                   <h5>Tags:</h5>
                   <%= album.tag_list %>
                 </h5>
-              </div>
-              <div class="col">
               </div>
               </div>
             </div>

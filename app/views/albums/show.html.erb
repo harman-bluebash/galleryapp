@@ -4,7 +4,7 @@
 <% @album.images.each do |attachment|%>
   <div class="mt-2">
   <% if attachment.image? %>
-    <%= image_tag (attachment), style: "width: 200px; display: block" %>
+    <%= image_tag (attachment), class: 'image' %>
   <% elsif attachment.audio? %>
     <audio controls>
      <source src="<%= rails_blob_url(attachment)%>" type="<%= attachment.content_type %>">

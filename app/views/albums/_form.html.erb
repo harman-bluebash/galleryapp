@@ -3,36 +3,36 @@
 <%= form_with model: @album do |form| %>
    <div>
      <b><%= form.label :Name %><br></b>
-     <%= form.text_field :title %>
+     <%= form.text_field :title, class: 'form-control'%>
     </div>
 
     <div>
      <b><%= form.label :Description %><br></b>
-     <%= form.text_field :description %>
+     <%= form.text_field :description, class: 'form-control' %>
    </div>
 
   <div>
    <b><%= form.label :Media %><br></b>
-   <%= form.file_field :cover_image%>
+   <%= form.file_field :cover_image, class: 'form-control' %>
   </div><br>
 
  <div>
    <b><%= form.label :Files%><br></b>
-   <%= form.file_field :images , multiple:true %>
+   <%= form.file_field :images , multiple:true, class: 'form-control'  %>
   </div><br> 
 
   <div>
    <b><%= form.label :Published%><br></b>
-   <%= form.check_box :published%>
+   <%= form.check_box :published %>
  </div><br>
 
  <div>
    <b><%= form.label :Tags%><br></b>
-   <%= form.text_field :tag_list %>
+   <%= form.text_field :tag_list, class: 'form-control'  %>
  </div>
 
    <div>
-    <br> <%= form.submit %>
+    <br> <%= form.submit  %>
   </div>
 <% end %>
 <%= render "footer" %>

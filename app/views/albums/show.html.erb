@@ -1,28 +1,30 @@
 
  <%= render "nav"   %>
-<h1 class="mt-3 text-primary ">  Enjoy the music </h1>  
+<h1 class="mt-3 text-primary text-center">  Enjoy the music </h1>  
 <% @album.images.each do |attachment|%>
   <div class="mt-2">
-  <% if attachment.image? %>
-    <%= image_tag (attachment), class: 'image' %>
-  <% elsif attachment.audio? %>
-    <audio controls>
-     <source src="<%= rails_blob_url(attachment)%>" type="<%= attachment.content_type %>">
-    </audio>
-  <% elsif attachment.vedio? %>
-    <vedio controls>
-      <source src="<%= rails_blob_url(attachment)%>" type="<%= attachment.content_type %>">
-    </vedio> 
-    </div>
+    <% if attachment.image? %>
+        <%= image_tag (attachment), class: 'image' %>
+      <% elsif attachment.audio? %>
+        <audio controls>
+        <source src="<%= rails_blob_url(attachment)%>" type="<%= attachment.content_type %>">
+        </audio>
+      <% elsif attachment.vedio? %>
+        <vedio controls>
+          <source src="<%= rails_blob_url(attachment)%>" type="<%= attachment.content_type %>">
+        </vedio> 
+  </div>
   <%end%>
 <%end%><br>
  <div class="me-2">
-   <%= link_to "Destroy", album_path(@album), data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    }, class: 'btn btn-danger'%>   
-                            
-</div>
+    <%if current_user.present? && (current_user.id == @album.user_id)%>
+              <%= link_to "Destroy", album_path(@album), data: {
+                                  turbo_method: :delete,
+                                  turbo_confirm: "Are you sure?"
+                                }, class: 'btn btn-danger m-2'%> 
+              <%=link_to "Edit" , edit_album_path(@album), class: 'btn btn-secondary me-2' %>                
+      <%end%>
+ </div>
  <%= render "footer" %>
 
 

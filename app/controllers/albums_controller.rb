@@ -5,7 +5,7 @@ class AlbumsController < ApplicationController
     
     @albums = current_user.albums.where(published: true)
     @q = @albums.ransack(params[:q])
-    @albums = @q.result
+    @albums = @q.result(:distinct=>true)
   end
 
   def show
